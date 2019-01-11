@@ -86,7 +86,7 @@ symbols_count_time:
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
   type: git
-  repository: https://github.com/normalHamal/normalHamal.github.io
+  repository: git@github.com:normalHamal/normalHamal.github.io.git
   branch: master
 
 # hexo-admin authentification 
