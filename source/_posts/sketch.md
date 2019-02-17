@@ -33,7 +33,7 @@ date: 2019-01-10 10:58:00
 
 ### 最后
 
-发现一个也不错的原型设计网站 - [xiaopiu][7]
+发现一个也不错的原型设计网站 - [Figma][7]
 
 [1]: http://static.qvjunping.me/887077143fc5a21a83585812cfa549bd859e923a.jpg
 [2]: https://www.sketchapp.com/
@@ -41,4 +41,4 @@ date: 2019-01-10 10:58:00
 [4]: https://github.com/utom/sketch-measure
 [5]: https://github.com/weixin/Miaow
 [6]: https://link.jianshu.com/?t=https://link.zhihu.com/?target=http%253A//p.tb.cn/rmsportal_5947_iconfontsketch.zip
-[7]: https://www.xiaopiu.com/
+[7]: https://www.figma.com/
