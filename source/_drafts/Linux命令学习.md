@@ -41,3 +41,9 @@ git fetch --all
 git reset --hard origin/master 
 git pull
 ```
+
+### linux届的鲁大师
+
+```
+wget -qO- bench.sh | bash
+```

@@ -295,20 +295,31 @@ after_success:
 - ssh ***@***.***.***.*** "/root/deploy.sh" # 构建成功之后连接服务器执行部署脚本
 ```
 
-由于不会写bash脚本，所以就粗略写了写大致的拉取和重启服务的脚本代码（`/root/deploy.sh`）：
+~~由于不会写bash脚本，所以就粗略写了写大致的拉取和重启服务的脚本代码：(/root/deploy.sh)~~
+
+因为不会写bash脚本，所以叫朋友给帮忙写了下[@qjp](https://blog.inlow.online/)：
+
 
 ```bash
-#! /bin/bash
-
-# go to dir: /var/www/test
-cd /var/www/test
-
-# fetch the lastest version
-git pull origin master
-
-# restart all the project
-# forever is A simple CLI tool for ensuring that a given script runs continuously 
-forever restartall
+#! /bin/bash                                             
+# go to dir: /var/www/myPic                          
+cd /var/www/myPic                                            
+# ensure your local repository has not been changed  
+git reset --hard HEAD                                
+# fetch & merge the lastest version                  
+git pull -f origin master                                     
+#install dependencies                                
+npm i                                                        
+# restart mongodb if it not launched                 
+if [ 0 == `ps -e | grep [m]ongod | wc -l` ]          
+then                                                 
+    echo Need Restart, Waiting...                    
+    mongod --config /etc/mongod.conf                 
+else                                                 
+    echo MongoDB has Launched                        
+fi                                                   
+# Hot Reload application                             
+npm run deploy                                   
 ```
 
 ### 最后
@@ -338,6 +349,12 @@ forever restartall
 构建出现问题的时候：
 
 ![](http://static.qvjunping.me/20190123144325.png)
+
+上面说的私有项目的token你可以这么拿到：
+
+1. 打开网页：https://travis-ci.com/用户名/项目名
+
+2. ![](http://static.qvjunping.me/result-1.gif?imageView2/0/format/webp/q/75|imageslim)
 
 #### 最终的配置文件.travis.yml
 

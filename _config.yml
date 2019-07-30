@@ -95,3 +95,6 @@ admin:
   password_hash: $2a$10$.E8B60QtkAU9f54wpFYkH.CjthVpqw51E9KdcwYVYKc39r7szUCJi 
   secret: blog
   deployCommand: './hexo_deploy.sh'
+# sitemap
+sitemap:
+  path: sitemap.xml

@@ -68,30 +68,30 @@ date: 2019-02-13 19:28:00
 3. 冗长的类选择器命名可以帮组你避免如下麻烦：
 
 ```html
-   <header>
-   	<div class="logo"></div>
-   </header>
-   <footer>
-   	<div class="logo"></div>
-   </footer>
+<header>
+  <div class="logo"></div>
+</header>
+<footer>
+  <div class="logo"></div>
+</footer>
 ```
 
    如上所述，你在`header`里面有一个logo，在`footer`里面同样有一个logo，但是它们的背景图片却并不相同，所以你可能就得分别对他们编写样式，写出如下的css：
 
 ```css
-   header .logo { background-image: ... }
-   footer .logo { background-image: ... }
+ header .logo { background-image: ... }
+ footer .logo { background-image: ... }
 ```
 
    但如果你用BEM来写可能就只需要写成这个样子：
 
 ```html
-   <header class="header">
-   	<div class="header__logo"></div>
-   </header>
-   <footer class="footer">
-   	<div class="footer__logo"></div>
-   </footer>
+<header class="header">
+  <div class="header__logo"></div>
+</header>
+<footer class="footer">
+  <div class="footer__logo"></div>
+</footer>
 ```
 
 # OOCSS
@@ -111,17 +111,17 @@ O（Object）O（Oriented）CSS就是面向对象的css。**OOCSS**不是一个�
 <div class="title"></div>
 <div class="content"></div>
 <style>
-    .title {
-        margin: 5px;
-        font-size: 16px;
-        background: red;
-        border-bottom: 1px solid black;
-    }
-    .content {
-        margin: 5px;
-        font-size: 14px;
-        border-bottom: 1px solid black;
-    }
+.title {
+  margin: 5px;
+  font-size: 16px;
+  background: red;
+  border-bottom: 1px solid black;
+}
+.content {
+  margin: 5px;
+  font-size: 14px;
+  border-bottom: 1px solid black;
+}
 </style>
 ```
 
@@ -131,18 +131,18 @@ O（Object）O（Oriented）CSS就是面向对象的css。**OOCSS**不是一个�
 <div class="title bottom_line"></div>
 <div class="content bottom_line"></div>
 <style>
-    .bottom_line {
-        border-bottom: 1px solid black;
-    }
-    .title {
-        margin: 5px;
-        font-size: 16px;
-        background: red;
-    }
-    .content {
-        margin: 5px;
-        font-size: 14px;
-    }
+.bottom_line {
+  border-bottom: 1px solid black;
+}
+.title {
+  margin: 5px;
+  font-size: 16px;
+  background: red;
+}
+.content {
+  margin: 5px;
+  font-size: 14px;
+}
 </style>
 ```
 
@@ -152,11 +152,11 @@ O（Object）O（Oriented）CSS就是面向对象的css。**OOCSS**不是一个�
 <div class="bgred f16 bb1 m5"></div>
 <div class="f14 bb1 m5"></div>
 <style>
-    .bgred { background: red; }
-    .f16 { font-size: 16px; }
-    .f14 { font-size: 14px; }
-    .bb1 { border-bottom: 1px solid black; }
-    .m5 { margin: 5px; }
+  .bgred { background: red; }
+  .f16 { font-size: 16px; }
+  .f14 { font-size: 14px; }
+  .bb1 { border-bottom: 1px solid black; }
+  .m5 { margin: 5px; }
 </style>
 ```
 
