@@ -2,6 +2,11 @@
   "name": "hexo-site",
   "version": "0.0.0",
   "private": true,
+  "scripts": {
+    "fancybox": "git clone https://github.com/theme-next/theme-next-fancybox3 themes/next/source/lib/fancybox",
+    "lazyload": "git clone https://github.com/theme-next/theme-next-jquery-lazyload themes/next/source/lib/jquery_lazyload",
+    "postinstall": "npm run fancybox && npm run lazyload"
+  },
   "hexo": {
     "version": "3.8.0"
   },
