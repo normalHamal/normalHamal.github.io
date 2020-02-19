@@ -104,27 +104,27 @@
 <meta name="keywords" content="css,BEM,OOCSS,CSS Modules">
 <meta property="og:type" content="article">
 <meta property="og:title" content="css模块化探索">
-<meta property="og:url" content="http://normalHamal.github.io/2019/02/13/css模块化探索/index.html">
+<meta property="og:url" content="http://normalHamal.online/2019/02/13/css模块化探索/index.html">
 <meta property="og:site_name" content="normalHamal&#39;s Notes">
 <meta property="og:description" content="css模块化探索 “There are only two hard things in Computer Science: cache invalidation and naming things” - Phil Karlton  计算科学中最难的两件事就是命名和缓存失效。所以对于如何构建可维护性和可读性极强的css，一直以来在碰见大型网站或者说网站交互以及样式较为丰富的时候都是需要被考虑到的。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://static.qvjunping.me/20190213193241.png">
-<meta property="og:image" content="http://static.qvjunping.me/carbon2.png">
-<meta property="og:image" content="http://static.qvjunping.me/carbon3.png">
-<meta property="og:image" content="http://static.qvjunping.me/carbon.png">
-<meta property="og:image" content="http://static.qvjunping.me/carbon1.png">
-<meta property="og:updated_time" content="2020-02-19T07:16:40.715Z">
+<meta property="og:image" content="http://cdn.normalhamal.online/20190213193241.png">
+<meta property="og:image" content="http://cdn.normalhamal.online/carbon2.png">
+<meta property="og:image" content="http://cdn.normalhamal.online/carbon3.png">
+<meta property="og:image" content="http://cdn.normalhamal.online/carbon.png">
+<meta property="og:image" content="http://cdn.normalhamal.online/carbon1.png">
+<meta property="og:updated_time" content="2020-02-19T09:12:51.604Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="css模块化探索">
 <meta name="twitter:description" content="css模块化探索 “There are only two hard things in Computer Science: cache invalidation and naming things” - Phil Karlton  计算科学中最难的两件事就是命名和缓存失效。所以对于如何构建可维护性和可读性极强的css，一直以来在碰见大型网站或者说网站交互以及样式较为丰富的时候都是需要被考虑到的。">
-<meta name="twitter:image" content="http://static.qvjunping.me/20190213193241.png">
+<meta name="twitter:image" content="http://cdn.normalhamal.online/20190213193241.png">
 
 
 
 
 
 
-  <link rel="canonical" href="http://normalHamal.github.io/2019/02/13/css模块化探索/">
+  <link rel="canonical" href="http://normalHamal.online/2019/02/13/css模块化探索/">
 
 
 
@@ -346,7 +346,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://normalHamal.github.io/2019/02/13/css模块化探索/">
+    <link itemprop="mainEntityOfPage" href="http://normalHamal.online/2019/02/13/css模块化探索/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="normalHamal">
@@ -406,7 +406,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2020-02-19 15:16:40" itemprop="dateModified" datetime="2020-02-19T15:16:40+08:00">2020-02-19</time>
+                <time title="修改时间：2020-02-19 17:12:51" itemprop="dateModified" datetime="2020-02-19T17:12:51+08:00">2020-02-19</time>
               
             
           </span>
@@ -506,7 +506,7 @@
       
 
       
-        <p><img src="http://static.qvjunping.me/20190213193241.png" alt=""></p>
+        <p><img src="http://cdn.normalhamal.online/20190213193241.png" alt=""></p>
 <h1 id="css模块化探索"><a href="#css模块化探索" class="headerlink" title="css模块化探索"></a>css模块化探索</h1><blockquote>
 <p>“There are only two hard things in Computer Science: cache invalidation and naming things” - Phil Karlton</p>
 </blockquote>
@@ -522,13 +522,13 @@
 <p>什么叫可重复性，就是说假设你定义一个类选择器为<code>button</code>，然后在里面写上你想设置的css属性，最后你可以在任意一个<code>button</code>或者是其它标签上添加类选择器<code>button</code>就可以继承它的样式了。你所需要做的仅仅只是加一个<code>class=&#39;button&#39;</code>或者不加。</p>
 <h2 id="E（element）"><a href="#E（element）" class="headerlink" title="E（element）"></a>E（element）</h2><p>元素是块的子节点。为了表明某个东西是一个元素，并且指出它包含在哪个容器中，你需要在块名后面添加<code>__element</code>。比如你看到一个类选择器名为<code>form__row</code>，你将立即知道<code>.form</code>块中有一个<code>row</code>元素，并且它位于<code>.form</code>内。</p>
 <p>例如你或许在<strong>Bootstrap</strong>上看到过这样的代码：</p>
-<p><img src="http://static.qvjunping.me/carbon2.png" alt=""></p>
+<p><img src="http://cdn.normalhamal.online/carbon2.png" alt=""></p>
 <p>上面的例子用BEM来写可能会是下面这个样子：</p>
-<p><img src="http://static.qvjunping.me/carbon3.png" alt=""></p>
+<p><img src="http://cdn.normalhamal.online/carbon3.png" alt=""></p>
 <h2 id="M（modifier）"><a href="#M（modifier）" class="headerlink" title="M（modifier）"></a>M（modifier）</h2><p>修饰符是指追加在块之后的样式。要使用修饰符，你可以添加<code>--modifier</code>到类选择器后面。例如你或许在<strong>Bootstrap</strong>上看到过这样的代码：</p>
-<p><img src="http://static.qvjunping.me/carbon.png" alt=""></p>
+<p><img src="http://cdn.normalhamal.online/carbon.png" alt=""></p>
 <p>上面的<code>btn</code>就是指块<code>button</code>的基本样式而类似<code>btn-primary</code>这样的就相当于对基本的<code>btn</code>样式再追加一点修饰。而在<strong>BEM</strong>中，可能就会写成这样：</p>
-<p><img src="http://static.qvjunping.me/carbon1.png" alt=""></p>
+<p><img src="http://cdn.normalhamal.online/carbon1.png" alt=""></p>
 <h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><ol>
 <li><strong>永远不应该链式命名 BEM 元素</strong>。 如果你的 <code>class</code> 最终像这样 <code>.form__row__input</code>，你做的事情是非常错误的，因为你完全可以通过再添加一个块来解决。</li>
 <li>虽然你看起来<strong>BEM</strong>的写法可能会让你觉得丑陋，就像<strong>prettier</strong>的代码样式刚开始也不被大家所认可的那样，但是它的强大之处在于它能让你的结构更加整齐明朗。</li>
