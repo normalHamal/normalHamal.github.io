@@ -1,5 +1,5 @@
 #!/usr/bin/env sh
 hexo clean
 hexo g
-cp ./CNAME ./public
 hexo d
+ossutil cp -r public/ oss://oss-normalhaml/blog

@@ -13,7 +13,7 @@ timezone:
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-url: http://normalHamal.github.io
+url: http://normalHamal.online
 root: /
 permalink: :year/:month/:day/:title/
 permalink_defaults:
@@ -91,8 +91,9 @@ deploy:
 
 # hexo-admin authentification 
 admin: 
-  username: normalhamal 
-  password_hash: $2a$10$.E8B60QtkAU9f54wpFYkH.CjthVpqw51E9KdcwYVYKc39r7szUCJi 
+  username: normalhamal
+  # 123456
+  password_hash: $2a$10$sSYy0kELAK14/.0AVt4bD.My5UZqZS8GM8rd63tmdXKfU1dwQjxDe
   secret: blog
   deployCommand: './hexo_deploy.sh'
 # sitemap
