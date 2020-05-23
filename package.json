@@ -6,6 +6,7 @@
     "deploy": "./node_modules/.bin/hexo d",
     "clean": "./node_modules/.bin/hexo clean",
     "gen": "./node_modules/.bin/hexo g",
+    "dev": "./node_modules/.bin/hexo s",
     "start": "node start.js",
     "fancybox": "git clone https://github.com/theme-next/theme-next-fancybox3 themes/next/source/lib/fancybox",
     "lazyload": "git clone https://github.com/theme-next/theme-next-jquery-lazyload themes/next/source/lib/jquery_lazyload",
