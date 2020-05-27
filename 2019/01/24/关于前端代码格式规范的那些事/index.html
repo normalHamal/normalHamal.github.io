@@ -108,14 +108,14 @@
 <meta property="og:site_name" content="normalHamal&#39;s Notes">
 <meta property="og:description" content="9102年，作为一个前端人员，或者说一个码农，你总会对自己的代码产生点洁癖。 面对如今前端的大生态，各种代码和配置文件的编写总会让你感觉到一团糟。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://cdn.normalhamal.online/20190124135218.png">
+<meta property="og:image" content="https://cdn.normalhamal.online/20190124135218.png">
 <meta property="og:image" content="http://cdn.normalhamal.online/20190124121532.png">
-<meta property="og:image" content="http://cdn.normalhamal.online/20190124170542.png">
-<meta property="og:updated_time" content="2020-02-19T09:12:51.605Z">
+<meta property="og:image" content="https://cdn.normalhamal.online/20190124170542.png">
+<meta property="og:updated_time" content="2020-05-27T04:31:38.055Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="关于前端代码格式规范的那些事">
 <meta name="twitter:description" content="9102年，作为一个前端人员，或者说一个码农，你总会对自己的代码产生点洁癖。 面对如今前端的大生态，各种代码和配置文件的编写总会让你感觉到一团糟。">
-<meta name="twitter:image" content="http://cdn.normalhamal.online/20190124135218.png">
+<meta name="twitter:image" content="https://cdn.normalhamal.online/20190124135218.png">
 
 
 
@@ -404,7 +404,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2020-02-19 17:12:51" itemprop="dateModified" datetime="2020-02-19T17:12:51+08:00">2020-02-19</time>
+                <time title="修改时间：2020-05-27 12:31:38" itemprop="dateModified" datetime="2020-05-27T12:31:38+08:00">2020-05-27</time>
               
             
           </span>
@@ -504,7 +504,7 @@
       
 
       
-        <p><img src="http://cdn.normalhamal.online/20190124135218.png" alt=""></p>
+        <p><img src="https://cdn.normalhamal.online/20190124135218.png" alt=""></p>
 <p><strong>9102</strong>年，作为一个前端人员，或者说一个码农，你总会对自己的代码产生点洁癖。</p>
 <p>面对如今前端的大生态，各种代码和配置文件的编写总会让你感觉到一团糟。</p>
 <a id="more"></a>
@@ -684,7 +684,7 @@
 <p>那么你就需要在提交你的代码之前至少运行一次<code>npm run test</code>来确保你这次的提交代码是规范的。你可以通过下面的方式来帮助你自动完成这一操作（仅针对<strong>前端</strong>推荐了后面2个插件）：</p>
 <h3 id="git-hooks"><a href="#git-hooks" class="headerlink" title="git hooks"></a>git hooks</h3><p>这个就很好说明了，所谓的<strong>hooks</strong>（钩子）也就是在某件特定的事件发生之前或者之后执行的脚本或者程序的。</p>
 <p>你打开你的项目的根目录，找到<code>.git</code>文件夹，然后打开<code>.git</code>下面的<code>hooks</code>文件夹：</p>
-<p><img src="http://cdn.normalhamal.online/20190124170542.png" alt=""></p>
+<p><img src="https://cdn.normalhamal.online/20190124170542.png" alt=""></p>
 <p>以上这些文件就是所谓的钩子文件，你可以把对应的文件后缀<code>.sample</code>去掉，然后打开编写你的shell脚本，它会在你执行对应的git命令的前后自动执行。</p>
 <p>比如你可以修改文件<code>pre-commit.sample</code>为<code>pre-commit</code>，然后往里面写入：</p>
 <figure class="highlight shell"><figcaption><span>pre-commit</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm run test</span><br></pre></td></tr></table></figure>

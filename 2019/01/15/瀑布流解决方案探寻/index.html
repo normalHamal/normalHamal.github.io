@@ -108,19 +108,19 @@
 <meta property="og:site_name" content="normalHamal&#39;s Notes">
 <meta property="og:description" content="前言最近在做本科毕业设计，估计是个超混的作品~，中间有个需要用到瀑布流布局的页面，估计后面还会针对这个页面加一些比如无限滚动加载、超前阈值的懒加载等等。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://cdn.normalhamal.online/20190114163900.png">
-<meta property="og:image" content="http://cdn.normalhamal.online/20190114163208.png">
-<meta property="og:image" content="http://cdn.normalhamal.online/20190114191335.png">
-<meta property="og:image" content="http://cdn.normalhamal.online/553eb674-5097-45ae-9e13-d9c9950cbfae.gif">
-<meta property="og:image" content="http://cdn.normalhamal.online/20190114204004.png">
-<meta property="og:image" content="http://cdn.normalhamal.online/20190114205528.png">
-<meta property="og:image" content="http://cdn.normalhamal.online/20190114211209.png">
-<meta property="og:image" content="http://cdn.normalhamal.online/20190114213939.png">
-<meta property="og:updated_time" content="2020-02-19T09:12:51.605Z">
+<meta property="og:image" content="https://cdn.normalhamal.online/20190114163900.png">
+<meta property="og:image" content="https://cdn.normalhamal.online/20190114163208.png">
+<meta property="og:image" content="https://cdn.normalhamal.online/20190114191335.png">
+<meta property="og:image" content="https://cdn.normalhamal.online/553eb674-5097-45ae-9e13-d9c9950cbfae.gif">
+<meta property="og:image" content="https://cdn.normalhamal.online/20190114204004.png">
+<meta property="og:image" content="https://cdn.normalhamal.online/20190114205528.png">
+<meta property="og:image" content="https://cdn.normalhamal.online/20190114211209.png">
+<meta property="og:image" content="https://cdn.normalhamal.online/20190114213939.png">
+<meta property="og:updated_time" content="2020-05-27T04:29:28.529Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="瀑布流解决方案探寻">
 <meta name="twitter:description" content="前言最近在做本科毕业设计，估计是个超混的作品~，中间有个需要用到瀑布流布局的页面，估计后面还会针对这个页面加一些比如无限滚动加载、超前阈值的懒加载等等。">
-<meta name="twitter:image" content="http://cdn.normalhamal.online/20190114163900.png">
+<meta name="twitter:image" content="https://cdn.normalhamal.online/20190114163900.png">
 
 
 
@@ -409,7 +409,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2020-02-19 17:12:51" itemprop="dateModified" datetime="2020-02-19T17:12:51+08:00">2020-02-19</time>
+                <time title="修改时间：2020-05-27 12:29:28" itemprop="dateModified" datetime="2020-05-27T12:29:28+08:00">2020-05-27</time>
               
             
           </span>
@@ -509,10 +509,10 @@
       
 
       
-        <p><img src="http://cdn.normalhamal.online/20190114163900.png" alt=""></p>
+        <p><img src="https://cdn.normalhamal.online/20190114163900.png" alt=""></p>
 <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>最近在做本科毕业设计，估计是个<strong>超混</strong>的作品~，中间有个需要用到瀑布流布局的页面，估计后面还会针对这个页面加一些比如无限滚动加载、超前阈值的懒加载等等。</p>
 <a id="more"></a>
-<p><img src="http://cdn.normalhamal.online/20190114163208.png" alt=""></p>
+<p><img src="https://cdn.normalhamal.online/20190114163208.png" alt=""></p>
 <blockquote>
 <p>瀑布流，又称瀑布流式布局。是比较流行的一种网站页面布局，视觉表现为参差不齐的多栏布局，随着页面滚动条向下滚动，这种布局还会<strong>不断加载数据块</strong>并附加至当前尾部。最早采用此布局的网站是<a href="https://www.pinterest.com/" target="_blank" rel="noopener">Pinterest</a>，逐渐在国内流行开来。</p>
 </blockquote>
@@ -520,9 +520,9 @@
 <h3 id="css解决方案"><a href="#css解决方案" class="headerlink" title="css解决方案"></a>css解决方案</h3><h4 id="Flex布局"><a href="#Flex布局" class="headerlink" title="Flex布局"></a>Flex布局</h4><p>既然是一种布局解决方案，我们很快就想到了Flex布局~</p>
 <p><del>虽然Flex布局还存在兼容问题，比如旧版本语法<code>display: box</code>，过渡版本<code>display: flex box</code>，然后就是现在的标准版本<code>display: flex</code>，所以如果你只是写新版本的语法形式，是肯定存在兼容性问题的。</del></p>
 <p>兼容性已经非常好了，除了IE，看下面这张图就可以看出来：</p>
-<p><img src="http://cdn.normalhamal.online/20190114191335.png" alt=""></p>
+<p><img src="https://cdn.normalhamal.online/20190114191335.png" alt=""></p>
 <p>下面是Flex的两列瀑布流布局实现：</p>
-<p><img src="http://cdn.normalhamal.online/553eb674-5097-45ae-9e13-d9c9950cbfae.gif" alt=""></p>
+<p><img src="https://cdn.normalhamal.online/553eb674-5097-45ae-9e13-d9c9950cbfae.gif" alt=""></p>
 <iframe scrolling="no" width="100%" height="300" src="//jsfiddle.net/normalHamal/qk0jc1p4/2/embedded/result,html,css/light" frameborder="0" allowfullscreen></iframe>
 <p>主要实现原理就是在一行里面放置两列，这两列通过设置Flex的主轴方向为垂直方向，起点为上沿，从而实现瀑布流两列布局。</p>
 <p>要注意的是这两列必须显示固定宽度，你可以按照设计稿中的的样式来设定，也可以使用<strong>calc()</strong>方法来设置<code>width: calc(100% / 2)</code></p>
@@ -535,13 +535,13 @@
 <p>因为这种方案对于我们之后还要进行动态地加载插入数据不太友好，因为要每增加一条数据，我们就要对整个waterfall的高度进行一次计算和赋值，所以就不贴具体实现代码了~</p>
 <h4 id="Flex布局的缺陷"><a href="#Flex布局的缺陷" class="headerlink" title="Flex布局的缺陷"></a>Flex布局的缺陷</h4><p>！！！此处的Flex布局缺陷专指上面讲的第一种Flex布局方式。</p>
 <p>先看图，一看就懂↓↓↓</p>
-<p><img src="http://cdn.normalhamal.online/20190114204004.png" alt=""></p>
+<p><img src="https://cdn.normalhamal.online/20190114204004.png" alt=""></p>
 <p>从图上我们就可以看到，如果有一列的内容过长就会导致另一列出现过多的空白，这样就会对用户造成很不好的浏览体验。</p>
 <h4 id="column-count属性"><a href="#column-count属性" class="headerlink" title="column-count属性"></a>column-count属性</h4><p>先直接上图关于它的兼容性↓↓↓</p>
-<p><img src="http://cdn.normalhamal.online/20190114205528.png" alt=""></p>
+<p><img src="https://cdn.normalhamal.online/20190114205528.png" alt=""></p>
 <p>看起来兼容性已经非常好了。</p>
 <p>下面是column-count的两列瀑布流布局实现：</p>
-<p><img src="http://cdn.normalhamal.online/20190114211209.png" alt=""></p>
+<p><img src="https://cdn.normalhamal.online/20190114211209.png" alt=""></p>
 <iframe scrolling="no" width="100%" height="300" src="//jsfiddle.net/normalHamal/qk0jc1p4/8/embedded/result,html,css/light" frameborder="0" allowfullscreen></iframe>
 <p>主要实现原理其实也没啥，这个css属性打一出现就是为了将元素划分为多少列，主体布局如下：</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"waterfall"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"waterfall_item"</span>&gt;</span>...<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"waterfall_item"</span>&gt;</span>...<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    ...</span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
@@ -551,7 +551,7 @@
 <p>不理解没关系，看看这篇文章就很好懂了<a href="https://tympanus.net/codrops/css_reference/break-inside/" target="_blank" rel="noopener">break-inside</a></p>
 <p>虽然使用column-count属性的布局不会出现像Flex布局一样的过长空白区域，但是需要注意到使用column-count分列的布局，列表元素的排列顺序并不是正常的从左到右（也就是<strong>Z</strong>字型排列），而是呈现出一种<strong>N</strong>字型排列。</p>
 <p>如果你是通过前端渲染数据的话，你或许可以通过js先对数据列表进行一定的处理从而达到下图的效果：</p>
-<p><img src="http://cdn.normalhamal.online/20190114213939.png" alt=""></p>
+<p><img src="https://cdn.normalhamal.online/20190114213939.png" alt=""></p>
 <h4 id="Grid布局"><a href="#Grid布局" class="headerlink" title="Grid布局"></a>Grid布局</h4><p>还没去了解Grid，但是听说对于瀑布流布局也不是很友好，也就是说也还有很多坑。</p>
 <h3 id="原生js解决方案"><a href="#原生js解决方案" class="headerlink" title="原生js解决方案"></a>原生js解决方案</h3><p>没时间，等以后有时间了好好研究研究。</p>
 <h3 id="一些成熟的框架-库"><a href="#一些成熟的框架-库" class="headerlink" title="一些成熟的框架|库"></a>一些成熟的框架|库</h3><h4 id="masonry"><a href="#masonry" class="headerlink" title="masonry"></a>masonry</h4><p><strong>masonry</strong>是基于<a href="http://desandro.mit-license.org/" target="_blank" rel="noopener">MIT License</a>开源协议的</p>
