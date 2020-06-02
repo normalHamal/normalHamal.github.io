@@ -8,7 +8,7 @@ date: 2020-05-13 19:48:00
 ---
 # vue-devtools无法inspect子组件的问题
 
-![image.png]( https://oss.normalhamal.online/blog/20200513194232.png)
+![image.png](https://cdn.normalhamal.online/20200513194232.png)
 
 <!-- more -->
 
