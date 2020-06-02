@@ -10,7 +10,7 @@ date: 2019-06-15 00:44:00
 ---
 # 微软云Auzre使用-简单测评
 
-![](http://cdn.normalhamal.online/20190615001748.png)
+![](https://cdn.normalhamal.online/20190615001748.png)
 
 <!-- more -->
 
@@ -59,13 +59,13 @@ $ wget --no-check-certificate https://github.com/teddysun/across/raw/master/bbr.
 
 这里我用的是标准B1S型CentOS，节点选择的是香港。
 
-![](http://cdn.normalhamal.online/20190614232240.png)
+![](https://cdn.normalhamal.online/20190614232240.png)
 
 
 
 **YouTube 4K视频播放测试**
 
-![](http://cdn.normalhamal.online/20190615001159.png)
+![](https://cdn.normalhamal.online/20190615001159.png)
 
 **speedtest-cli测试**
 
@@ -73,7 +73,7 @@ $ wget --no-check-certificate https://github.com/teddysun/across/raw/master/bbr.
 $ wget -O speedtest-cli https://raw.githubusercontent.com/sivel/speedtest-cli/master/speedtest.py && chmod +x speedtest-cli && ./speedtest-cli
 ```
 
-![](http://cdn.normalhamal.online/20190614234443.png)
+![](https://cdn.normalhamal.online/20190614234443.png)
 
 **VPS测试脚本**
 
@@ -83,11 +83,11 @@ $ wget -O speedtest-cli https://raw.githubusercontent.com/sivel/speedtest-cli/ma
 
 [https://github.com/oooldking/script](https://github.com/oooldking/script)
 
-![](http://cdn.normalhamal.online/20190616232606.png)
+![](https://cdn.normalhamal.online/20190616232606.png)
 
-![](http://cdn.normalhamal.online/20190615004850.png)
+![](https://cdn.normalhamal.online/20190615004850.png)
 
-![](http://cdn.normalhamal.online/20190615000039.png)
+![](https://cdn.normalhamal.online/20190615000039.png)
 
 **国外这种不计带宽、按量收费的云服务商是真的牛！**
 
@@ -95,15 +95,15 @@ $ wget -O speedtest-cli https://raw.githubusercontent.com/sivel/speedtest-cli/ma
 
 <https://azure.microsoft.com/zh-cn/free/students/>
 
-![](http://cdn.normalhamal.online/20190615002917.png)
+![](https://cdn.normalhamal.online/20190615002917.png)
 
 但是！。。。。。。。。。。。。。。。你会发现然并卵。
 
-![](http://cdn.normalhamal.online/20190617230011.png)
+![](https://cdn.normalhamal.online/20190617230011.png)
 
 Azure for Students 的可用地区在中国只包含香港和澳门区域：
 
-![](http://cdn.normalhamal.online/20190617230949.png)
+![](https://cdn.normalhamal.online/20190617230949.png)
 
 ## SSR客户端下载
 
