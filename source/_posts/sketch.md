@@ -35,7 +35,7 @@ date: 2019-01-10 10:58:00
 
 发现一个也不错的原型设计网站 - [Figma][7]
 
-[1]: https://cdn.normalhamal.online/887077143fc5a21a83585812cfa549bd859e923a.jpg
+[1]: https://cdn.normalhamal.online/887077143fc5a21a83585812cfa549bd859e923a.jpg?imageMogr2/auto-orient/thumbnail/!50p/interlace/1/blur/1x0/quality/60%7Cimageslim
 [2]: https://www.sketchapp.com/
 [3]: https://github.com/cute/SketchI18N
 [4]: https://github.com/utom/sketch-measure

@@ -9,7 +9,7 @@ categories:
   - 前端
 date: 2019-02-13 19:28:00
 ---
-![](https://cdn.normalhamal.online/20190213193241.png)
+![](https://cdn.normalhamal.online/20190213193241.png?imageMogr2/auto-orient/thumbnail/!50p/interlace/1/blur/1x0/quality/60%7Cimageslim)
 
 # css模块化探索
 

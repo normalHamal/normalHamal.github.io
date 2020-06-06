@@ -8,7 +8,7 @@ categories:
   - 服务器部署
 date: 2019-01-23 14:56:00
 ---
-![](https://cdn.normalhamal.online/20190122195019.png)
+![](https://cdn.normalhamal.online/20190122195019.png?imageMogr2/auto-orient/thumbnail/!50p/interlace/1/blur/1x0/quality/60%7Cimageslim)
 
 > 编写代码只是软件开发的一小部分，更多的时间往往花在构建（build）和测试（test）。
 
