@@ -9,8 +9,7 @@
     "dev": "./node_modules/.bin/hexo s",
     "start": "node start.js",
     "fancybox": "git clone https://github.com/theme-next/theme-next-fancybox3 themes/next/source/lib/fancybox",
-    "lazyload": "git clone https://github.com/theme-next/theme-next-jquery-lazyload themes/next/source/lib/jquery_lazyload",
-    "postinstall": "npm run fancybox && npm run lazyload"
+    "postinstall": "npm run fancybox"
   },
   "hexo": {
     "version": "3.8.0"
@@ -25,6 +24,7 @@
     "hexo-generator-index": "^0.2.1",
     "hexo-generator-sitemap": "^1.2.0",
     "hexo-generator-tag": "^0.2.0",
+    "hexo-neat": "^1.0.4",
     "hexo-renderer-ejs": "^0.3.1",
     "hexo-renderer-marked": "^0.3.2",
     "hexo-renderer-stylus": "^0.3.3",

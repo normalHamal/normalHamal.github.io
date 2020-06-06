@@ -99,3 +99,19 @@ admin:
 # sitemap
 sitemap:
   path: sitemap.xml
+
+# 文件压缩，设置一些需要跳过的文件 
+# hexo-neat
+neat_enable: true
+# 压缩 html
+neat_html:
+  enable: true
+  exclude:
+# 压缩 css
+neat_css:
+  enable: true
+  exclude:
+    - '**/*.min.css'
+# 压缩 js
+neat_js:
+  enable: false
