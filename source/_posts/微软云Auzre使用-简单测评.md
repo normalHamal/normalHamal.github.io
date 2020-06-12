@@ -8,8 +8,6 @@ categories:
   - 服务器部署
 date: 2019-06-15 00:44:00
 ---
-# 微软云Auzre使用-简单测评
-
 ![](https://cdn.normalhamal.online/20190615001748.png?imageMogr2/auto-orient/thumbnail/!50p/interlace/1/blur/1x0/quality/60%7Cimageslim)
 
 <!-- more -->
