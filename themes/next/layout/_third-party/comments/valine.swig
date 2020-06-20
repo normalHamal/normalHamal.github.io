@@ -1,10 +1,10 @@
-{% set leancloud_uri = 'https://cdn.normalhamal.online/av-min.js' %}
+{% set leancloud_uri = '//cdn.normalhamal.online/av-min.js' %}
 {% if theme.vendors.leancloud %}
   {% set leancloud_uri = theme.vendors.leancloud %}
 {% endif %}
 <script src="{{ leancloud_uri }}"></script>
 
-{% set valine_uri = '//unpkg.com/valine/dist/Valine.min.js' %}
+{% set valine_uri = '//cdn.normalhamal.online/Valine.min.js' %}
 {% if theme.vendors.valine %}
   {% set valine_uri = theme.vendors.valine %}
 {% endif %}

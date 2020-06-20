@@ -16,12 +16,14 @@
 
 <html class="{{ html_class | lower }}" lang="{{ config.language }}">
 <head>
-  <link rel="preload" href="//cdn.normalhamal.online">
-  <link rel="preload" href="//codepen.io/normalHamal">
-  <link rel="preload" href="//api.ip.sb">
-  <link rel="preload" href="//avoscloud.com">
-  <link rel="preload" href="//static.codepen.io">
-  <link rel="preload" href="//static.codepen.io">
+  <link rel="dns-prefetch" href="//cdn.normalhamal.online">
+  <link rel="dns-prefetch" href="//codepen.io/normalHamal">
+  <link rel="dns-prefetch" href="//api.ip.sb">
+  <link rel="dns-prefetch" href="//avoscloud.com">
+  <link rel="dns-prefetch" href="//static.codepen.io">
+  <link rel="dns-prefetch" href="//cdn.normalhamal.online">
+  <link rel="dns-prefetch" href="//cdn.normalhamal.online">
+  <link rel="dns-prefetch" href="//cdn.normalhamal.online">
   <link rel="preload" href="//blog.normalhamal.online/lib/font-awesome/fonts/fontawesome-webfont.woff2?v=4.7.0" as="font" crossorigin>
   {{ partial('_partials/head/head.swig', {}, {cache: theme.cache.enable}) }}
   {% include '_partials/head/head-unique.swig' %}
