@@ -16,15 +16,26 @@
 
 <html class="{{ html_class | lower }}" lang="{{ config.language }}">
 <head>
-  <link rel="dns-prefetch" href="//cdn.normalhamal.online">
-  <link rel="dns-prefetch" href="//codepen.io/normalHamal">
-  <link rel="dns-prefetch" href="//api.ip.sb">
-  <link rel="dns-prefetch" href="//avoscloud.com">
-  <link rel="dns-prefetch" href="//static.codepen.io">
-  <link rel="dns-prefetch" href="//cdn.normalhamal.online">
-  <link rel="dns-prefetch" href="//cdn.normalhamal.online">
-  <link rel="dns-prefetch" href="//cdn.normalhamal.online">
-  <link rel="preload" href="//blog.normalhamal.online/lib/font-awesome/fonts/fontawesome-webfont.woff2?v=4.7.0" as="font" crossorigin>
+  <link rel="preconnect" href="https://fonts.googleapis.com/" crossorigin>
+  <link rel="preconnect" href="https://static.normalhamal.online/" crossorigin>
+  <link rel="preconnect" href="https://codepen.io/" crossorigin>
+  <link rel="preconnect" href="https://api.ip.sb/" crossorigin>
+  <link rel="preconnect" href="https://avoscloud.com/" crossorigin>
+  <link rel="preconnect" href="https://static.codepen.io/" crossorigin>
+  <link rel="preconnect" href="https://api.ip.sb/" crossorigin>
+  <link rel="preconnect" href="https://app-router.leancloud.cn/" crossorigin>
+  <link rel="preconnect" href="https://7exeoib1.api.lncld.net/" crossorigin>
+
+  <link rel="dns-prefetch" href="https://static.normalhamal.online/">
+  <link rel="dns-prefetch" href="https://codepen.io/">
+  <link rel="dns-prefetch" href="https://api.ip.sb/">
+  <link rel="dns-prefetch" href="https://avoscloud.com/">
+  <link rel="dns-prefetch" href="https://static.codepen.io/">
+  <link rel="dns-prefetch" href="https://api.ip.sb/">
+  <link rel="dns-prefetch" href="https://app-router.leancloud.cn/">
+  <link rel="dns-prefetch" href="https://7exeoib1.api.lncld.net/">
+
+  <link rel="preload" href="/lib/font-awesome/fonts/fontawesome-webfont.woff2?v=4.7.0" as="font" crossorigin>
   {{ partial('_partials/head/head.swig', {}, {cache: theme.cache.enable}) }}
   {% include '_partials/head/head-unique.swig' %}
   <title>{% block title %}{% endblock %}</title>

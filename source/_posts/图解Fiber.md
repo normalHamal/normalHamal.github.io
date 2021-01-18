@@ -8,7 +8,8 @@ categories:
   - react
 date: 2020-06-12 12:25:00
 ---
-![image-20200612112258936](https://cdn.normalhamal.online/20200612122147.png)
+
+![image-20200612112258936](https://static.normalhamal.online/20200612122147.png)
 
 <!-- more -->
 
@@ -28,8 +29,8 @@ React Fiber的目的是为了提高在动画、layout（浏览器Render tree和p
 React Fiber是整个React团队耗时2年，对React核心算法的不断重构所得出的产物，是一个崭新的reconcilition algorithm。
 ## why React Fiber？
 
-搜寻React Fiber的相关资料的过程中，我们总是能发现这么两张图不停地出现在各大博客文章中：![image.png](https://cdn.normalhamal.online/20200612122148.png)
-![image.png](https://cdn.normalhamal.online/20200612122149.png)
+搜寻React Fiber的相关资料的过程中，我们总是能发现这么两张图不停地出现在各大博客文章中：![image.png](https://static.normalhamal.online/20200612122148.png)
+![image.png](https://static.normalhamal.online/20200612122149.png)
 大致的意思都是在说，出现Fiber之前，React在执行reconcilition的时候，React 15及之前的函数调用栈深度会一直维持较深的水平，一直霸占主线程，导致更高优先级的任务（比如动画、用户交互等）无法得到即时处理。原因就是之前的react会在每次组件更新的时候递归地去更新它的所有子组件。
 而React Fiber会通过将reconcilition过程拆分为更多精细的Fiber, 可以在每执行完一次Fiber时都回到主线程检查是否有更高优先级的任务，如果有就插队处理。
 
@@ -37,14 +38,14 @@ React Fiber是整个React团队耗时2年，对React核心算法的不断重构�
 > reconciliation/render: 这一阶段主要是对新旧两棵Virtual Dom树进行对比更新，记录相应的effect(对dom的改动操作，fiber版本可打断）
 > commit: 这个阶段主要是把上个阶段生成的DOM操作去真正的执行（同步执行，不可打断）。
 
-![image.png](https://cdn.normalhamal.online/20200612122150.png)
+![image.png](https://static.normalhamal.online/20200612122150.png)
 上面的几张图都是出自于Lin Clark在React Conf上的一次演讲，视频地址在：[A Cartoon Intro to Fiber - React Conf 2017](https://www.youtube.com/watch?v=ZCuYPiUIONs)
 视频里面也用了一个动态图来向我们展示了加入fiber(并开启异步渲染)后的react app和正常的react app在大量setState时的一个动画流畅性展示：
 官方在github上也实现了这么一个demo，链接在此：[React Fiber vs Stack Demo](https://github.com/facebook/react/blob/master/fixtures/fiber-triangle/index.html)
 下面是官方三角demo的在线运行状况（来自另一个github仓库：[react-fiber-vs-stack-demo](https://github.com/claudiopro/react-fiber-vs-stack-demo)，代码和官方的一样，官方的仓库里的demo需要本地执行一次build，才能正常预览，这个仓库相当于把build后的js单独拿了出来）：
-[fiber demo](https://claudiopro.github.io/react-fiber-vs-stack-demo/fiber.html)![image-20200202170200398.png](https://cdn.normalhamal.online/20200612122151.png)
+[fiber demo](https://claudiopro.github.io/react-fiber-vs-stack-demo/fiber.html)![image-20200202170200398.png](https://static.normalhamal.online/20200612122151.png)
 [Stack demo](https://claudiopro.github.io/react-fiber-vs-stack-demo/stack.html)
-![image-20200202171211976.png](https://cdn.normalhamal.online/20200612122152.png)
+![image-20200202171211976.png](https://static.normalhamal.online/20200612122152.png)
 这里说一下这里的demo代码里都干了些什么事情：
 
 1. 在每一帧渲染之前（通过requestAnimationFrame方法）给最外层的div设置一个缩放的transform，也就是让整个div开启一个不停变大缩小的动画。
@@ -80,7 +81,7 @@ React Fiber是整个React团队耗时2年，对React核心算法的不断重构�
 
 下面是每一帧的一个生命周期，从这里我们也可以看出来，**只要在paint之前的任何一个步骤执行时间过长**，都会导致后面的paint被阻塞，直观地说就是页面的响应时间过长甚至无响应。
 
-![image.png](https://cdn.normalhamal.online/20200612122153.png)
+![image.png](https://static.normalhamal.online/20200612122153.png)
 
 
 ### 增量渲染（时间分片）vs 全量渲染
@@ -121,9 +122,9 @@ React Fiber是整个React团队耗时2年，对React核心算法的不断重构�
 所以我们需要对React现有的数据结构进行调整，模拟函数调用栈, 将之前需要递归进行处理的事情分解成增量的执行单元，将递归转换成迭代。也就是下面的Fiber结构了。
 
 #### Fiber
-每一个fiber节点对应一个单独的vDOM Node（替代了原先的vDOM），并且所有的fiber节点，串联起来就是一个链表结构了，每个组件实例和每个DOM节点抽象表示的实例都是一个工作单元。工作循环中，每次处理一个fiber，处理完可以中断/挂起整个工作循环。具体的fiber结构是这么来实现的：**![image.png](https://cdn.normalhamal.online/20200612122154.png)**
+每一个fiber节点对应一个单独的vDOM Node（替代了原先的vDOM），并且所有的fiber节点，串联起来就是一个链表结构了，每个组件实例和每个DOM节点抽象表示的实例都是一个工作单元。工作循环中，每次处理一个fiber，处理完可以中断/挂起整个工作循环。具体的fiber结构是这么来实现的：**![image.png](https://static.normalhamal.online/20200612122154.png)**
 #### Fiber Tree
-通过上述的结构（child、sibling、return）我们可以串联出一棵基于fiber node的树形结构：![image.png](https://cdn.normalhamal.online/20200612122155.png)
+通过上述的结构（child、sibling、return）我们可以串联出一棵基于fiber node的树形结构：![image.png](https://static.normalhamal.online/20200612122155.png)
 #### 虚拟的堆栈帧
 可以看到，每个fiber里面存储了大量的可用信息，要知道我们不使用典型的同步递归模型，只是因为我们没法随意控制。所以fiber的出现是为了模拟函数调用栈，做到可随意中断和恢复，它也被称为虚拟栈帧，你可以拿它和函数调用栈类比一下, 两者结构非常像:
 
@@ -156,7 +157,7 @@ channel.port1.onmessage = performWorkUntilDeadline;
 ```
 
 2. 当开始调度时，port2向port1发送一条空消息，这里不区分消息类型，只要port1监听到有消息过来，就立即开始调度。`port.postMessage(null);`
-2. 然后先设置一个**deadline**时间，因为我们不能让每个任务肆无忌惮地执行，我们需要保持每一帧的执行时间维持稳定，这样才能让整个页面的动画和交互显得流畅。这里的`deadline = currentTime + 5ms`。当然这并不是说每隔5ms就中断一次当前正在执行的任务，而是每执行完一个任务单元，就会开始判断是否超过了deadline，一旦超过了**deadline**时间，立马中断执行，将执行权交还给浏览器，同时重新向port1发送一条空消息，如果这个时候浏览器向事件队列插入了一个渲染任务（paint），那么我们就在paint之后开始调度，否则说明还有空闲时间，我们就继续我们的调度。![image.png](https://cdn.normalhamal.online/20200612122156.png)
+2. 然后先设置一个**deadline**时间，因为我们不能让每个任务肆无忌惮地执行，我们需要保持每一帧的执行时间维持稳定，这样才能让整个页面的动画和交互显得流畅。这里的`deadline = currentTime + 5ms`。当然这并不是说每隔5ms就中断一次当前正在执行的任务，而是每执行完一个任务单元，就会开始判断是否超过了deadline，一旦超过了**deadline**时间，立马中断执行，将执行权交还给浏览器，同时重新向port1发送一条空消息，如果这个时候浏览器向事件队列插入了一个渲染任务（paint），那么我们就在paint之后开始调度，否则说明还有空闲时间，我们就继续我们的调度。![image.png](https://static.normalhamal.online/20200612122156.png)
 #### 调度过程
 虽然有了这么一个调度的方法，但是我们还需要考虑一个优先级的问题。上面我们说过动画、layout是高优先级的任务，所以需要优先被执行，那么假设我们程序当中就是会有要比它们更高优先级执行的呢，或者虽然都是render和update，屏幕外的内容和当前视野中的内容就一定是同优先级的么，或者手动创建的需要被优先对待的交互类操作，所以这里就需要一个调度器，来代替浏览器对任务进行调度。
 
@@ -212,12 +213,12 @@ export const Idle = 2;
 export const Sync = MAX_SIGNED_31_BIT_INT; // Math.pow(2, 30) - 1
 export const Batched = Sync - 1;
 ```
-而expirationTime就是用来区分任务优先级的一个重要属性了：**这里要注意区分，scheduler里面的task的expirationTime是越小优先级越高的，而react fiber里面的每个Update的expirationTime却是越大优先级越高。**![image.png](https://cdn.normalhamal.online/20200612122157.png)
+而expirationTime就是用来区分任务优先级的一个重要属性了：**这里要注意区分，scheduler里面的task的expirationTime是越小优先级越高的，而react fiber里面的每个Update的expirationTime却是越大优先级越高。**![image.png](https://static.normalhamal.online/20200612122157.png)
 #### 构建workInProgress tree
-![image.png](https://cdn.normalhamal.online/20200612122158.png)在最开始的时候也就是第一次执行ReactDom.render的时候会生成一颗完整的fiberTree，也就是上图的左边那棵树，也就是前面说过的由每一个vdom节点对应的fiber节点连接而成的。
+![image.png](https://static.normalhamal.online/20200612122158.png)在最开始的时候也就是第一次执行ReactDom.render的时候会生成一颗完整的fiberTree，也就是上图的左边那棵树，也就是前面说过的由每一个vdom节点对应的fiber节点连接而成的。
 
 而右边这棵树，我们叫它workInProgress tree，它是在更新过程也就是reconciliation中根据输入数据以及现有的fiber tree构造出来的新的fiber tree(workInProgress tree)。
-既然fiber的出现替代了之前的vdom结构，那么我们可以很容易的看出来构建workInProgress tree的过程其实就是vdom diff的过程。具体的执行过程如下：![image.png](https://cdn.normalhamal.online/20200612122159.png)
+既然fiber的出现替代了之前的vdom结构，那么我们可以很容易的看出来构建workInProgress tree的过程其实就是vdom diff的过程。具体的执行过程如下：![image.png](https://static.normalhamal.online/20200612122159.png)
 这里需要注意的几个地方就是：在构建workInProgress tree之后，每一个fiber对象的alternate会指向workInProgress tree中对应的workInProgress fiber，而workInProgress fiber的alternate也会指向此对象。这种互相持有引用的目的是为了复用，等到再次创建workInProgress节点时优先取alternate，没有的话再创建新的fiber节点。
 
 当workInProgress tree完全生成好之后，只需要将FiberRoot的current指向workInProgress tree的root，丢掉旧的fiber tree。这里使用到的是双缓冲技术(double buffering)。旧fiber作为新fiber更新的预留空间，新fiber对旧fiber持有引用，以达到复用fiber实例的目的。
@@ -266,16 +267,16 @@ ReactDOM.createRoot(
 ).render(<App />);
 ```
 
-第一次render：![image.png](https://intranetproxy.alipay.com/skylark/lark/0/2020/png/244554/1586799549039-6d87aea2-cebd-4dac-8971-e5b9ba4f4a3f.png#align=left&display=inline&height=994&margin=%5Bobject%20Object%5D&name=image.png&originHeight=994&originWidth=1146&size=901066&status=done&style=none&width=1146)第一次setState（点击increasing按钮，记得先清空一次控制台再点击按钮，防止第一次render的日志影响分析）:![F24D6681-057D-49D7-8590-4807BEA3ACF2.png](https://cdn.normalhamal.online/20200612122200.png)
+第一次render：![image.png](https://intranetproxy.alipay.com/skylark/lark/0/2020/png/244554/1586799549039-6d87aea2-cebd-4dac-8971-e5b9ba4f4a3f.png#align=left&display=inline&height=994&margin=%5Bobject%20Object%5D&name=image.png&originHeight=994&originWidth=1146&size=901066&status=done&style=none&width=1146)第一次setState（点击increasing按钮，记得先清空一次控制台再点击按钮，防止第一次render的日志影响分析）:![F24D6681-057D-49D7-8590-4807BEA3ACF2.png](https://static.normalhamal.online/20200612122200.png)
 #### **当任务被中断，如何恢复？**
 既然说到任务会被中断，那么具体是怎样个中断法，以及任务被中断后，整个reconciliation过程如何恢复？
 首先我们需要对**任务**有一个清晰的认知。上面我们说到每一个fiber节点都代表一个工作（任务）单元，但在整个react的调度中，每一次更新的过程都只是一个**大任务**，它是由所有此次更新而需要变更的dom对应的fiber节点代表的子任务组成的。那么在一个react app运行的过程中，可能会出现多个**大任务**同时存在的情况，也就是多次更新同时发生，并且它们还可能会有不同的任务优先级（上面提到的优先级概念）。
-我们先看一张大图，也就是整个中断过程会经历的方法或者说路径：![image.png](https://cdn.normalhamal.online/20200612122201.png)**首先我们所说的任务被中断应该分为2种情况**：
+我们先看一张大图，也就是整个中断过程会经历的方法或者说路径：![image.png](https://static.normalhamal.online/20200612122201.png)**首先我们所说的任务被中断应该分为2种情况**：
 
 1. 默认分配的时间片到期了，所以任务被中断。
 1. 突然插入的高优先级任务打断了正在进行的低优先级，所以低优先级任务被中断。
 
-**第一种情况：**路线图如下：![image.png](https://intranetproxy.alipay.com/skylark/lark/0/2020/png/244554/1591769562185-69bc8ffa-300e-4d57-bd25-7c1996d8b0c5.png#align=left&display=inline&height=931&margin=%5Bobject%20Object%5D&name=image.png&originHeight=931&originWidth=1614&size=348902&status=done&style=none&width=1614)实际运行时的堆栈图如下：![image.png](https://cdn.normalhamal.online/20200612122202.png)
+**第一种情况：**路线图如下：![image.png](https://intranetproxy.alipay.com/skylark/lark/0/2020/png/244554/1591769562185-69bc8ffa-300e-4d57-bd25-7c1996d8b0c5.png#align=left&display=inline&height=931&margin=%5Bobject%20Object%5D&name=image.png&originHeight=931&originWidth=1614&size=348902&status=done&style=none&width=1614)实际运行时的堆栈图如下：![image.png](https://static.normalhamal.online/20200612122202.png)
 整个流程就是：
 
 在遍历整个fiber tree时，每当一个fiber节点上的任务被处理完成后，就会调用shouldYield方法来查询一遍当时时间片是否耗尽或者出现了比当前任务优先级更高的任务，这里我们说的第一种情况专指时间片耗尽的情况。然后再判断当前任务是否已完成，已完成则把它pop出整个task队列，否则就中止当前的任务，将主线程的执行权交还给浏览器，并且因为当前任务还未完成，所以我们需要在浏览器空闲后继续恢复执行当前任务，这里的恢复逻辑就是上面所说的MessageChannel实现了，只需要向port1发送一条Message，port1监听到有消息过来，就会立即开始调度，而具体调度的回调则是保存在一个变量scheduledHostCallback中，因为只有在判断当前任务已完成后才会把scheduledHostCallback置为null，所以这里我们取到的scheduledHostCallback还是上一次未完成的任务的callback。并且由于任务并没有被pop出去，所以我们还是可以这个任务重新开始。
@@ -360,7 +361,7 @@ ReactDOM.createRoot(
   document.getElementById('container')
 ).render(<App />);
 ```
-控制台输出日志如下：![image.png](https://cdn.normalhamal.online/20200612122203.png)从打印的日志可以看出，上述2种生命周期钩子都执行了3次，那么从我们上面的大图流程来讲，也就是低优先级任务B在执行的时候，已经执行了render前的2种生命周期钩子函数，但突然被高优先级任务A打断，于是它被取消了，但同时又创建了一个新的调度任务，此时我们开始执行调度任务A，等A执行完后我们还会执行一次由B重新创建的任务。所以生命周期钩子一共执行了3遍。（图中为什么最后结果是BA下面有解析）
+控制台输出日志如下：![image.png](https://static.normalhamal.online/20200612122203.png)从打印的日志可以看出，上述2种生命周期钩子都执行了3次，那么从我们上面的大图流程来讲，也就是低优先级任务B在执行的时候，已经执行了render前的2种生命周期钩子函数，但突然被高优先级任务A打断，于是它被取消了，但同时又创建了一个新的调度任务，此时我们开始执行调度任务A，等A执行完后我们还会执行一次由B重新创建的任务。所以生命周期钩子一共执行了3遍。（图中为什么最后结果是BA下面有解析）
 
 那么你可能会问为什么componentWillMount没有执行3遍？那当然是因为它本身就是在挂载之前被调用，所以更新并不会使它执行多次，但是它仍然会在异步渲染的模式下有可能执行多次，比如我们可以试着这样改一下代码：
 
@@ -377,7 +378,7 @@ render() {
     );
   }
 ```
-这样你就会看到控制台下componentWillMount里打印的日志被输出来3遍。![image.png](https://cdn.normalhamal.online/20200612122204.png)
+这样你就会看到控制台下componentWillMount里打印的日志被输出来3遍。![image.png](https://static.normalhamal.online/20200612122204.png)
 
 **那么为什么调度任务每次都要从root重新开始调度？**
 
@@ -478,7 +479,7 @@ ReactDOM.createRoot(
   document.getElementById('container')
 ).render(<App />);
 ```
-控制台输出日志如下，可以看到和react源码注释中的例子是一样的执行流程：![image.png](https://cdn.normalhamal.online/20200612122205.png)
+控制台输出日志如下，可以看到和react源码注释中的例子是一样的执行流程：![image.png](https://static.normalhamal.online/20200612122205.png)
 
 ## why vue do not need fiber？
 

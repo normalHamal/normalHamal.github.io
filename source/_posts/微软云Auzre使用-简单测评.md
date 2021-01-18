@@ -8,7 +8,7 @@ categories:
   - 服务器部署
 date: 2019-06-15 00:44:00
 ---
-![](https://cdn.normalhamal.online/20190615001748.png?imageMogr2/auto-orient/thumbnail/!50p/interlace/1/blur/1x0/quality/60%7Cimageslim)
+![](https://static.normalhamal.online/20190615001748.png?imageMogr2/auto-orient/thumbnail/!50p/interlace/1/blur/1x0/quality/60%7Cimageslim)
 
 <!-- more -->
 
@@ -57,13 +57,13 @@ $ wget --no-check-certificate https://github.com/teddysun/across/raw/master/bbr.
 
 这里我用的是标准B1S型CentOS，节点选择的是香港。
 
-![](https://cdn.normalhamal.online/20190614232240.png)
+![](https://static.normalhamal.online/20190614232240.png)
 
 
 
 **YouTube 4K视频播放测试**
 
-![](https://cdn.normalhamal.online/20190615001159.png)
+![](https://static.normalhamal.online/20190615001159.png)
 
 **speedtest-cli测试**
 
@@ -71,7 +71,7 @@ $ wget --no-check-certificate https://github.com/teddysun/across/raw/master/bbr.
 $ wget -O speedtest-cli https://raw.githubusercontent.com/sivel/speedtest-cli/master/speedtest.py && chmod +x speedtest-cli && ./speedtest-cli
 ```
 
-![](https://cdn.normalhamal.online/20190614234443.png)
+![](https://static.normalhamal.online/20190614234443.png)
 
 **VPS测试脚本**
 
@@ -81,11 +81,11 @@ $ wget -O speedtest-cli https://raw.githubusercontent.com/sivel/speedtest-cli/ma
 
 [https://github.com/oooldking/script](https://github.com/oooldking/script)
 
-![](https://cdn.normalhamal.online/20190616232606.png)
+![](https://static.normalhamal.online/20190616232606.png)
 
-![](https://cdn.normalhamal.online/20190615004850.png)
+![](https://static.normalhamal.online/20190615004850.png)
 
-![](https://cdn.normalhamal.online/20190615000039.png)
+![](https://static.normalhamal.online/20190615000039.png)
 
 **国外这种不计带宽、按量收费的云服务商是真的牛！**
 
@@ -93,15 +93,15 @@ $ wget -O speedtest-cli https://raw.githubusercontent.com/sivel/speedtest-cli/ma
 
 <https://azure.microsoft.com/zh-cn/free/students/>
 
-![](https://cdn.normalhamal.online/20190615002917.png)
+![](https://static.normalhamal.online/20190615002917.png)
 
 但是！。。。。。。。。。。。。。。。你会发现然并卵。
 
-![](https://cdn.normalhamal.online/20190617230011.png)
+![](https://static.normalhamal.online/20190617230011.png)
 
 Azure for Students 的可用地区在中国只包含香港和澳门区域：
 
-![](https://cdn.normalhamal.online/20190617230949.png)
+![](https://static.normalhamal.online/20190617230949.png)
 
 ## SSR客户端下载
 

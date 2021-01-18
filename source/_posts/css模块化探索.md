@@ -9,7 +9,7 @@ categories:
   - 前端
 date: 2019-02-13 19:28:00
 ---
-![](https://cdn.normalhamal.online/20190213193241.png?imageMogr2/auto-orient/thumbnail/!50p/interlace/1/blur/1x0/quality/60%7Cimageslim)
+![](https://static.normalhamal.online/20190213193241.png?imageMogr2/auto-orient/thumbnail/!50p/interlace/1/blur/1x0/quality/60%7Cimageslim)
 
 # css模块化探索
 
@@ -45,21 +45,21 @@ date: 2019-02-13 19:28:00
 
 例如你或许在**Bootstrap**上看到过这样的代码：
 
-![](https://cdn.normalhamal.online/carbon2.png)
+![](https://static.normalhamal.online/carbon2.png)
 
 上面的例子用BEM来写可能会是下面这个样子：
 
-![](https://cdn.normalhamal.online/carbon3.png)
+![](https://static.normalhamal.online/carbon3.png)
 
 ## M（modifier）
 
 修饰符是指追加在块之后的样式。要使用修饰符，你可以添加`--modifier`到类选择器后面。例如你或许在**Bootstrap**上看到过这样的代码：
 
-![](https://cdn.normalhamal.online/carbon.png)
+![](https://static.normalhamal.online/carbon.png)
 
 上面的`btn`就是指块`button`的基本样式而类似`btn-primary`这样的就相当于对基本的`btn`样式再追加一点修饰。而在**BEM**中，可能就会写成这样：
 
-![](https://cdn.normalhamal.online/carbon1.png)
+![](https://static.normalhamal.online/carbon1.png)
 
 ## 总结
 
