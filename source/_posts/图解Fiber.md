@@ -8,7 +8,6 @@ categories:
   - react
 date: 2020-06-12 12:25:00
 ---
-
 ![image-20200612112258936](https://cdn.normalhamal.online/20200612122147.png)
 
 <!-- more -->
@@ -290,7 +289,7 @@ ReactDOM.createRoot(
 具体流程或者说效果，我们可以从这个例子得到验证：例子在此：[打开控制台查看输出日志](https://sdp-c96r20ib8.now.sh/)
 这个例子在说明高优先级任务抢占低优先级任务的同时还验证了另一件事情：
 
-> 以下生命周期函数被指出在异步渲染的过程中可能会执行多次：
+> 以下生命周期函数都是在reconciliation 阶段被执行得，而因为 reconciliation 阶段是可以被打断的，所以 reconciliation 阶段会执行的生命周期函数就有可能会出现调用多次的情况。
 > - `componentWillMount`
 > - `componentWillReceiveProps`
 > - `componentWillUpdate`
@@ -386,7 +385,7 @@ render() {
 
 所以这里我们发现，reconcile这个过程耗费的时间还是很大的，因为我们每次更新都还是需要从root重新开始遍历，而反观vue却是可以做到组件级更新。
 
-既然调度任务是带有优先级的，那么是否会由于优先级的原因而导致组件的最终状态完全无法控制？
+**既然调度任务是带有优先级的，那么是否会由于优先级的原因而导致组件的最终状态完全无法控制？**
 答案是：不会的。react最终保证了既让高优先级任务插队, 同时也保证了状态更新的时序，即状态必须按照插入顺序进行计算，但任务可以按优先级顺序执行。
 
 这里举一个例子，这个例子也是react源码里ReactUpdateQueue.js文件的注释内容：
@@ -480,6 +479,59 @@ ReactDOM.createRoot(
 ).render(<App />);
 ```
 控制台输出日志如下，可以看到和react源码注释中的例子是一样的执行流程：![image.png](https://cdn.normalhamal.online/20200612122205.png)
+
+## why vue do not need fiber？
+
+> 这里的do not need fiber专指fiber的time slicing feature（时间分片功能）!
+
+[Why remove time slicing from vue3?](https://github.com/vuejs/rfcs/issues/89#issuecomment-546988615) 
+
+以下为上述尤大大回答的翻译：
+
+----
+
+在web apps中，**导致浏览器无法及时响应用户交互的更新**（janky updates）通常是由大量同步的CPU计算加原生DOM更新组合而成的。time slicing就是一个用来在CPU计算时试图保持app响应速度的机制，但它只作用于CPU计算时 - DOM更新的操作必须仍然是同步的，以确保最终DOM状态的一致性。
+
+那么假设这里有这么两种janky updates：
+
+1. CPU计算在16ms以内，但是原生DOM更新的数量实在是太多了，导致app终究会让人感觉“卡顿”不管是否使用time slicing。
+2. CPU计算非常频繁，且耗时超过16ms。理论上来说，这就是time slicing开始发挥作用的场景了。但是，HCI研究表明，除非进行动画处理，否则对于正常的用户交互而言，除非更新花费的时间超过100毫秒，否则大多数人不会感到卡顿。
+
+这也就是说，仅当频繁的更新需要花费超过100ms的纯CPU时间时，时间分片才真正具有实用价值。那么有趣的地方就来了：这种情况在React中会经常发生，因为：
+
+* 由于fiber结构比较笨重，所以本质上来说react在对虚拟DOM进行协调（reconciliation）时就会比较慢。
+
+* 与模板相比，React使用的JSX使得其渲染功能固有地难以优化，因为模板更易于静态分析。
+
+* React hooks把大部分组件树级别的优化留给了开发者（例如. 防止子组件进行不必要的重新渲染），在大多数情况下开发者需要明确地使用useMemo。而且，每当React组件接收到children prop时，它几乎总是必须重新渲染，因为children prop在每次渲染时将始终是一颗新的vdom树。这意味着默认情况下使用hooks的React应用将被过度渲染。更糟糕的是，诸如useMemo之类的优化手段没法简单地自动应用，因为
+
+  （1）它需要正确的deps 数组；
+
+  （2）盲目地将其添加到所有地方可能会阻止应该发生的更新，类似于PureComponent。不幸的是，大多数开发人员很懒惰，不会积极地在所有地方优化他们的应用程序，因此大多数使用hooks的React应用程序会导致很多不必要的CPU开销。
+
+相比之下，Vue通过以下方式解决了上述问题：
+
+* 本质上更简单，因此更快的虚拟DOM协调（不需要 time slicing -> 所以不需要fiber -> 所以开销更少）。
+* 通过分析模板进行大量的AOT优化，解决了虚拟DOM协调的基本开销。基准测试表明，对于动态内容与静态内容比率约为1：4的典型DOM内容，Vue 3原始协调比Svelte还要快，并且在CPU上花费的时间少于React的1/10。
+* 通过反应性跟踪，将slot编译为functions（避免子组件导致的重新渲染）和自动缓存内联处理程序（避免内联的function props导致重新渲染）的智能组件树级别优化。除非必须，否则子组件永远不会重新渲染，而无需开发人员进行任何手动优化。这意味着对于同一更新，在React应用程序中，它可能导致多个组件重新渲染，但是在Vue中，它很可能仅导致一个组件重新渲染。
+
+因此，默认情况下，与React app相比，Vue 3 app将花费更少的CPU占用时间，同时在CPU上花费超过100+ms的可能将大大减少，并且仅在极端情况下才会遇到，无论如何，DOM才是最有可能成为瓶颈的地方。
+
+----
+
+现在，time slicing或者说concurrent mode带来了另一个问题：因为框架现在可以调度和协调所有更新，所以在优先级，无效性，重新输入等方面会产生大量额外的复杂性。处理这些问题的逻辑永远不可能被tree-shaking，这会导致框架的运行时基线大小变得冗肿。即使具有Suspense和包括所有可被tree-shaking的功能，Vue 3的运行时仍仅是当前React + React DOM大小的1/4。
+
+请注意，这并不是说concurrent mode整体上来说是一个糟糕的想法。它确实提供了有趣的新方法来处理特定类别的问题（特别是与协调异步状态转换有关），但是time slicing（作为concurrent mode的子功能）专门解决了一个问题，该问题在React中比在其他框架更突出，同时也会形成由之而来的成本。权衡至此，对于Vue 3来说似乎不值得引入fiber或者说time slicing。
+
+----
+
+**总结地来说就是：**
+
+1. Vue3 非常的快，所以不需要时间分片。
+2. 实现起来太复杂，最终实现后带来的成本也是很大的，弊大于利。
+3. 大部分需要时间分片的场景很少，即使在高频交互的场景下导致了CUP计算频繁，但是一般情况下这也不是时间分片可以解决的。（这里尤大举了个例子就是：在线编译器 (live compiler playground) ）反而一个好的防抖或节流（debounce/throttle）方案在这里可以很好的奏效。
+
+----
 
 > 参考：
 > [https://juejin.im/post/5c70f044f265da2de4507ab9](https://juejin.im/post/5c70f044f265da2de4507ab9)
