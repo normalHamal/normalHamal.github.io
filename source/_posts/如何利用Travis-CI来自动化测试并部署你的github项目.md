@@ -8,7 +8,7 @@ categories:
   - 服务器部署
 date: 2019-01-23 14:56:00
 ---
-![](https://cdn.normalhamal.online/20190122195019.png?imageMogr2/auto-orient/thumbnail/!50p/interlace/1/blur/1x0/quality/60%7Cimageslim)
+![](https://static.normalhamal.online/20190122195019.png?imageMogr2/auto-orient/thumbnail/!50p/interlace/1/blur/1x0/quality/60%7Cimageslim)
 
 > 编写代码只是软件开发的一小部分，更多的时间往往花在构建（build）和测试（test）。
 
@@ -40,7 +40,7 @@ date: 2019-01-23 14:56:00
 
 官方给出的步骤说明：
 
-![](https://cdn.normalhamal.online/20190122213906.png)
+![](https://static.normalhamal.online/20190122213906.png)
 
 ### 测试原理
 
@@ -65,7 +65,7 @@ script:
 
 也就是说，默认会执行`npm test`来测试你的项目源码，当然你也可以自己定义你的测试脚本。测试程序一般是在配置好你的项目所需要的环境以及依赖之后执行。你可以查看下面大致情况下Travis CI的构建日志来进一步了解：
 
-![](https://cdn.normalhamal.online/20190123105450.png)
+![](https://static.normalhamal.online/20190123105450.png)
 
 对于一般的**JavaScript**项目我们可能会有单元测试、功能测试甚至整合测试，也可能你仅仅只是想要做个代码规范检查（**ESLint**）测试，比如上面那张图。
 
@@ -196,7 +196,7 @@ Travis CI给出的解决方案就是,利用官方自己给出的命令行工具[
 
 加密文件一般以`.enc`作为后缀，解密的密钥所存在的安全变量最终是保存在你的Travis CI控制台里的，所以你不用担心它会发生泄露的问题。
 
-![](https://cdn.normalhamal.online/20190123131107.png)
+![](https://static.normalhamal.online/20190123131107.png)
 
 ### 安装The Travis Client
 
@@ -340,21 +340,21 @@ npm run deploy
 
 最终就会显示这么一个标志：
 
-![](https://cdn.normalhamal.online/20190123144222.png)
+![](https://static.normalhamal.online/20190123144222.png)
 
 或者构建失败的时候：
 
-![](https://cdn.normalhamal.online/20190123202733.png)
+![](https://static.normalhamal.online/20190123202733.png)
 
 构建出现问题的时候：
 
-![](https://cdn.normalhamal.online/20190123144325.png)
+![](https://static.normalhamal.online/20190123144325.png)
 
 上面说的私有项目的token你可以这么拿到：
 
 1. 打开网页：https://travis-ci.com/用户名/项目名
 
-2. ![](http://cdn.normalhamal.online/result-1.gif?imageView2/0/format/webp/q/75|imageslim)
+2. ![](http://static.normalhamal.online/result-1.gif?imageView2/0/format/webp/q/75|imageslim)
 
 #### 最终的配置文件.travis.yml
 
@@ -380,7 +380,7 @@ after_success:
 
 如果你按照上面的步骤一步一步的集成你的项目，最终，你发现在Travis CI的控制台上出现了如下的错误，导致你的项目构建失败。
 
-![](https://cdn.normalhamal.online/20190123161455.png)
+![](https://static.normalhamal.online/20190123161455.png)
 
 **bad decrypt**
 

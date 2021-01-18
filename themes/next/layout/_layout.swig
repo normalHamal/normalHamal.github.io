@@ -17,7 +17,7 @@
 <html class="{{ html_class | lower }}" lang="{{ config.language }}">
 <head>
   <link rel="preconnect" href="https://fonts.googleapis.com/" crossorigin>
-  <link rel="preconnect" href="https://cdn.normalhamal.online/" crossorigin>
+  <link rel="preconnect" href="https://static.normalhamal.online/" crossorigin>
   <link rel="preconnect" href="https://codepen.io/" crossorigin>
   <link rel="preconnect" href="https://api.ip.sb/" crossorigin>
   <link rel="preconnect" href="https://avoscloud.com/" crossorigin>
@@ -26,7 +26,7 @@
   <link rel="preconnect" href="https://app-router.leancloud.cn/" crossorigin>
   <link rel="preconnect" href="https://7exeoib1.api.lncld.net/" crossorigin>
 
-  <link rel="dns-prefetch" href="https://cdn.normalhamal.online/">
+  <link rel="dns-prefetch" href="https://static.normalhamal.online/">
   <link rel="dns-prefetch" href="https://codepen.io/">
   <link rel="dns-prefetch" href="https://api.ip.sb/">
   <link rel="dns-prefetch" href="https://avoscloud.com/">
@@ -35,7 +35,7 @@
   <link rel="dns-prefetch" href="https://app-router.leancloud.cn/">
   <link rel="dns-prefetch" href="https://7exeoib1.api.lncld.net/">
 
-  <link rel="preload" href="https://blog.normalhamal.online/lib/font-awesome/fonts/fontawesome-webfont.woff2?v=4.7.0" as="font" crossorigin>
+  <link rel="preload" href="/lib/font-awesome/fonts/fontawesome-webfont.woff2?v=4.7.0" as="font" crossorigin>
   {{ partial('_partials/head/head.swig', {}, {cache: theme.cache.enable}) }}
   {% include '_partials/head/head-unique.swig' %}
   <title>{% block title %}{% endblock %}</title>
