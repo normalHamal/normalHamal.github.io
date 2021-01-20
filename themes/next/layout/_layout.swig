@@ -44,7 +44,14 @@
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="{{ page.lang || page.language || config.language }}">
-
+  <script>
+    window.__bl = {
+      config: {
+        pid:"di9sch0yqv@95fdd72b343c07d",appType:"web",imgUrl:"https://arms-retcode.aliyuncs.com/r.png?",sendResource:true,behavior:true,useFmp:true,enableLinkTrace:true
+      }
+    }
+  </script>
+  <script type="text/javascript" src="https://retcode.alicdn.com/retcode/bl.js" crossorigin></script>
   {% set container_class = "container " %}
   {% if theme.sidebar.position %}
     {% set container_class = container_class + 'sidebar-position-' + theme.sidebar.position %}
