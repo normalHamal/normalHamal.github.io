@@ -16,6 +16,7 @@
 
 <html class="{{ html_class | lower }}" lang="{{ config.language }}">
 <head>
+  <meta name="google-site-verification" content="M3A4fCCzA0wa2lItHZ3zeyjrCOSYWOgBLPUqnevvDN8" />
   <link rel="preconnect" href="https://fonts.googleapis.com/" crossorigin>
   <link rel="preconnect" href="https://static.normalhamal.online/" crossorigin>
   <link rel="preconnect" href="https://codepen.io/" crossorigin>
