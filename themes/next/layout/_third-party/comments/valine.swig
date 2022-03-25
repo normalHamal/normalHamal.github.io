@@ -1,4 +1,4 @@
-{% set leancloud_uri = '//static.normalhamal.online/av-min.js' %}
+{% set leancloud_uri = '/lib/av-min/av-min.js' %}
 {% if theme.vendors.leancloud %}
   {% set leancloud_uri = theme.vendors.leancloud %}
 {% endif %}

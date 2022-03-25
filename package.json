@@ -5,10 +5,10 @@
   "scripts": {
     "deploy": "./node_modules/.bin/hexo d",
     "clean": "./node_modules/.bin/hexo clean",
-    "gen": "./node_modules/.bin/hexo g",
+    "gen": "./node_modules/.bin/hexo g -b",
     "dev": "./node_modules/.bin/hexo s",
     "start": "node start.js",
-    "fancybox": "git clone https://github.com/theme-next/theme-next-fancybox3 themes/next/source/lib/fancybox",
+    "fancybox": "git clone git@github.com:theme-next/theme-next-fancybox3.git themes/next/source/lib/fancybox",
     "postinstall": "npm run fancybox"
   },
   "hexo": {
